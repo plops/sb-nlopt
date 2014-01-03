@@ -1,0 +1,625 @@
+(macro ("/usr/local/include/nlopt.h" 1) "__STDC_HOSTED__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__OBJC__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__GNUC__" "4")
+(macro ("/usr/local/include/nlopt.h" 1) "__GNUC_MINOR__" "0")
+(macro ("/usr/local/include/nlopt.h" 1) "__GNUC_PATCHLEVEL__" "0")
+(macro ("/usr/local/include/nlopt.h" 1) "__SIZE_TYPE__" "long unsigned int")
+(macro ("/usr/local/include/nlopt.h" 1) "__PTRDIFF_TYPE__" "long int")
+(macro ("/usr/local/include/nlopt.h" 1) "__WCHAR_TYPE__" "int")
+(macro ("/usr/local/include/nlopt.h" 1) "__WINT_TYPE__" "unsigned int")
+(macro ("/usr/local/include/nlopt.h" 1) "__INTMAX_TYPE__" "long int")
+(macro ("/usr/local/include/nlopt.h" 1) "__UINTMAX_TYPE__" "long unsigned int")
+(macro ("/usr/local/include/nlopt.h" 1) "__GXX_ABI_VERSION" "1002")
+(macro ("/usr/local/include/nlopt.h" 1) "__SCHAR_MAX__" "127")
+(macro ("/usr/local/include/nlopt.h" 1) "__SHRT_MAX__" "32767")
+(macro ("/usr/local/include/nlopt.h" 1) "__INT_MAX__" "2147483647")
+(macro ("/usr/local/include/nlopt.h" 1) "__LONG_MAX__" "9223372036854775807L")
+(macro ("/usr/local/include/nlopt.h" 1) "__LONG_LONG_MAX__" "9223372036854775807LL")
+(macro ("/usr/local/include/nlopt.h" 1) "__WCHAR_MAX__" "2147483647")
+(macro ("/usr/local/include/nlopt.h" 1) "__CHAR_BIT__" "8")
+(macro ("/usr/local/include/nlopt.h" 1) "__INTMAX_MAX__" "9223372036854775807L")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_EVAL_METHOD__" "0")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_RADIX__" "2")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MANT_DIG__" "24")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_DIG__" "6")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MIN_EXP__" "(-125)")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MIN_10_EXP__" "(-37)")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MAX_EXP__" "128")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MAX_10_EXP__" "38")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MAX__" "3.40282347e+38F")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_MIN__" "1.17549435e-38F")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_EPSILON__" "1.19209290e-7F")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_DENORM_MIN__" "1.40129846e-45F")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_HAS_INFINITY__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__FLT_HAS_QUIET_NAN__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MANT_DIG__" "53")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_DIG__" "15")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MIN_EXP__" "(-1021)")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MIN_10_EXP__" "(-307)")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MAX_EXP__" "1024")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MAX_10_EXP__" "308")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MAX__" "1.7976931348623157e+308")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_MIN__" "2.2250738585072014e-308")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_EPSILON__" "2.2204460492503131e-16")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_DENORM_MIN__" "4.9406564584124654e-324")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_HAS_INFINITY__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__DBL_HAS_QUIET_NAN__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MANT_DIG__" "64")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_DIG__" "18")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MIN_EXP__" "(-16381)")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MIN_10_EXP__" "(-4931)")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MAX_EXP__" "16384")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MAX_10_EXP__" "4932")
+(macro ("/usr/local/include/nlopt.h" 1) "__DECIMAL_DIG__" "21")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MAX__" "1.18973149535723176502e+4932L")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_MIN__" "3.36210314311209350626e-4932L")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_EPSILON__" "1.08420217248550443401e-19L")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_DENORM_MIN__" "3.64519953188247460253e-4951L")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_HAS_INFINITY__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__LDBL_HAS_QUIET_NAN__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__REGISTER_PREFIX__" "")
+(macro ("/usr/local/include/nlopt.h" 1) "__USER_LABEL_PREFIX__" "")
+(macro ("/usr/local/include/nlopt.h" 1) "__VERSION__" "\"4.0.0\"")
+(macro ("/usr/local/include/nlopt.h" 1) "_LP64" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__LP64__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__NO_INLINE__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__FINITE_MATH_ONLY__" "0")
+(macro ("/usr/local/include/nlopt.h" 1) "__amd64" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__amd64__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__x86_64" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__x86_64__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__tune_k8__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__MMX__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__SSE__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__SSE2__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__SSE_MATH__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__SSE2_MATH__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__k8" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__k8__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__gnu_linux__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__linux" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__linux__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "linux" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__unix" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__unix__" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "unix" "1")
+(macro ("/usr/local/include/nlopt.h" 1) "__ELF__" "1")
+(macro ("/usr/local/include/nlopt.h" 24) "NLOPT_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 43) "_STDDEF_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 44) "_STDDEF_H_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 46) "_ANSI_STDDEF_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 48) "__STDDEF_H__" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 141) "_PTRDIFF_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 142) "_T_PTRDIFF_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 143) "_T_PTRDIFF" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 144) "__PTRDIFF_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 145) "_PTRDIFF_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 146) "_BSD_PTRDIFF_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 147) "___int_ptrdiff_t_h" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 148) "_GCC_PTRDIFF_T" "")
+(type ("/usr/local/bin/../ffigen/include/stddef.h" 152)
+ "ptrdiff_t"
+ (long ()))
+(undef-macro "__need_ptrdiff_t")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 189) "__size_t__" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 190) "__SIZE_T__" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 191) "_SIZE_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 192) "_SYS_SIZE_T_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 193) "_T_SIZE_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 194) "_T_SIZE" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 195) "__SIZE_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 196) "_SIZE_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 197) "_BSD_SIZE_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 198) "_SIZE_T_DEFINED_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 199) "_SIZE_T_DEFINED" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 200) "_BSD_SIZE_T_DEFINED_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 201) "_SIZE_T_DECLARED" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 202) "___int_size_t_h" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 203) "_GCC_SIZE_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 204) "_SIZET_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 208) "__size_t" "")
+(type ("/usr/local/bin/../ffigen/include/stddef.h" 214)
+ "size_t"
+ (unsigned-long ()))
+(undef-macro "__need_size_t")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 265) "__wchar_t__" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 266) "__WCHAR_T__" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 267) "_WCHAR_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 268) "_T_WCHAR_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 269) "_T_WCHAR" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 270) "__WCHAR_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 271) "_WCHAR_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 272) "_BSD_WCHAR_T_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 273) "_WCHAR_T_DEFINED_" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 274) "_WCHAR_T_DEFINED" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 275) "_WCHAR_T_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 276) "___int_wchar_t_h" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 277) "__INT_WCHAR_T_H" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 278) "_GCC_WCHAR_T" "")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 279) "_WCHAR_T_DECLARED" "")
+(undef-macro "_BSD_WCHAR_T_")
+(type ("/usr/local/bin/../ffigen/include/stddef.h" 326)
+ "wchar_t"
+ (int ()))
+(undef-macro "__need_wchar_t")
+(undef-macro "NULL")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 403) "NULL" "((void *)0)")
+(undef-macro "__need_NULL")
+(macro ("/usr/local/bin/../ffigen/include/stddef.h" 414) "offsetof ( TYPE , MEMBER )" "__builtin_offsetof (TYPE, MEMBER)")
+(macro ("/usr/local/include/nlopt.h" 38) "NLOPT_STDCALL" "")
+(macro ("/usr/local/include/nlopt.h" 53) "NLOPT_EXTERN ( T )" "extern T NLOPT_STDCALL")
+(type ("/usr/local/include/nlopt.h" 63)
+ "nlopt_func"
+ (pointer (function
+  ((unsigned ()) (pointer (double ())) (pointer (double ())) (pointer (void ())) )
+  (double ()))))
+(type ("/usr/local/include/nlopt.h" 68)
+ "nlopt_mfunc"
+ (pointer (function
+  ((unsigned ()) (pointer (double ())) (unsigned ()) (pointer (double ())) (pointer (double ())) (pointer (void ())) )
+  (void ()))))
+(type ("/usr/local/include/nlopt.h" 73)
+ "nlopt_precond"
+ (pointer (function
+  ((unsigned ()) (pointer (double ())) (pointer (double ())) (pointer (double ())) (pointer (void ())) )
+  (void ()))))
+(enum ("" 0)
+ "44_/usr/local/include/nlopt.h"(("NLOPT_GN_DIRECT" 0)("NLOPT_GN_DIRECT_L" 1)("NLOPT_GN_DIRECT_L_RAND" 2)("NLOPT_GN_DIRECT_NOSCAL" 3)("NLOPT_GN_DIRECT_L_NOSCAL" 4)("NLOPT_GN_DIRECT_L_RAND_NOSCAL" 5)("NLOPT_GN_ORIG_DIRECT" 6)("NLOPT_GN_ORIG_DIRECT_L" 7)("NLOPT_GD_STOGO" 8)("NLOPT_GD_STOGO_RAND" 9)("NLOPT_LD_LBFGS_NOCEDAL" 10)("NLOPT_LD_LBFGS" 11)("NLOPT_LN_PRAXIS" 12)("NLOPT_LD_VAR1" 13)("NLOPT_LD_VAR2" 14)("NLOPT_LD_TNEWTON" 15)("NLOPT_LD_TNEWTON_RESTART" 16)("NLOPT_LD_TNEWTON_PRECOND" 17)("NLOPT_LD_TNEWTON_PRECOND_RESTART" 18)("NLOPT_GN_CRS2_LM" 19)("NLOPT_GN_MLSL" 20)("NLOPT_GD_MLSL" 21)("NLOPT_GN_MLSL_LDS" 22)("NLOPT_GD_MLSL_LDS" 23)("NLOPT_LD_MMA" 24)("NLOPT_LN_COBYLA" 25)("NLOPT_LN_NEWUOA" 26)("NLOPT_LN_NEWUOA_BOUND" 27)("NLOPT_LN_NELDERMEAD" 28)("NLOPT_LN_SBPLX" 29)("NLOPT_LN_AUGLAG" 30)("NLOPT_LD_AUGLAG" 31)("NLOPT_LN_AUGLAG_EQ" 32)("NLOPT_LD_AUGLAG_EQ" 33)("NLOPT_LN_BOBYQA" 34)("NLOPT_GN_ISRES" 35)("NLOPT_AUGLAG" 36)("NLOPT_AUGLAG_EQ" 37)("NLOPT_G_MLSL" 38)("NLOPT_G_MLSL_LDS" 39)("NLOPT_LD_SLSQP" 40)("NLOPT_LD_CCSAQ" 41)("NLOPT_GN_ESCH" 42)("NLOPT_NUM_ALGORITHMS" 43)))
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT" 0)
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT_L" 1)
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT_L_RAND" 2)
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT_NOSCAL" 3)
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT_L_NOSCAL" 4)
+(enum-ident ("" 0)
+ "NLOPT_GN_DIRECT_L_RAND_NOSCAL" 5)
+(enum-ident ("" 0)
+ "NLOPT_GN_ORIG_DIRECT" 6)
+(enum-ident ("" 0)
+ "NLOPT_GN_ORIG_DIRECT_L" 7)
+(enum-ident ("" 0)
+ "NLOPT_GD_STOGO" 8)
+(enum-ident ("" 0)
+ "NLOPT_GD_STOGO_RAND" 9)
+(enum-ident ("" 0)
+ "NLOPT_LD_LBFGS_NOCEDAL" 10)
+(enum-ident ("" 0)
+ "NLOPT_LD_LBFGS" 11)
+(enum-ident ("" 0)
+ "NLOPT_LN_PRAXIS" 12)
+(enum-ident ("" 0)
+ "NLOPT_LD_VAR1" 13)
+(enum-ident ("" 0)
+ "NLOPT_LD_VAR2" 14)
+(enum-ident ("" 0)
+ "NLOPT_LD_TNEWTON" 15)
+(enum-ident ("" 0)
+ "NLOPT_LD_TNEWTON_RESTART" 16)
+(enum-ident ("" 0)
+ "NLOPT_LD_TNEWTON_PRECOND" 17)
+(enum-ident ("" 0)
+ "NLOPT_LD_TNEWTON_PRECOND_RESTART" 18)
+(enum-ident ("" 0)
+ "NLOPT_GN_CRS2_LM" 19)
+(enum-ident ("" 0)
+ "NLOPT_GN_MLSL" 20)
+(enum-ident ("" 0)
+ "NLOPT_GD_MLSL" 21)
+(enum-ident ("" 0)
+ "NLOPT_GN_MLSL_LDS" 22)
+(enum-ident ("" 0)
+ "NLOPT_GD_MLSL_LDS" 23)
+(enum-ident ("" 0)
+ "NLOPT_LD_MMA" 24)
+(enum-ident ("" 0)
+ "NLOPT_LN_COBYLA" 25)
+(enum-ident ("" 0)
+ "NLOPT_LN_NEWUOA" 26)
+(enum-ident ("" 0)
+ "NLOPT_LN_NEWUOA_BOUND" 27)
+(enum-ident ("" 0)
+ "NLOPT_LN_NELDERMEAD" 28)
+(enum-ident ("" 0)
+ "NLOPT_LN_SBPLX" 29)
+(enum-ident ("" 0)
+ "NLOPT_LN_AUGLAG" 30)
+(enum-ident ("" 0)
+ "NLOPT_LD_AUGLAG" 31)
+(enum-ident ("" 0)
+ "NLOPT_LN_AUGLAG_EQ" 32)
+(enum-ident ("" 0)
+ "NLOPT_LD_AUGLAG_EQ" 33)
+(enum-ident ("" 0)
+ "NLOPT_LN_BOBYQA" 34)
+(enum-ident ("" 0)
+ "NLOPT_GN_ISRES" 35)
+(enum-ident ("" 0)
+ "NLOPT_AUGLAG" 36)
+(enum-ident ("" 0)
+ "NLOPT_AUGLAG_EQ" 37)
+(enum-ident ("" 0)
+ "NLOPT_G_MLSL" 38)
+(enum-ident ("" 0)
+ "NLOPT_G_MLSL_LDS" 39)
+(enum-ident ("" 0)
+ "NLOPT_LD_SLSQP" 40)
+(enum-ident ("" 0)
+ "NLOPT_LD_CCSAQ" 41)
+(enum-ident ("" 0)
+ "NLOPT_GN_ESCH" 42)
+(enum-ident ("" 0)
+ "NLOPT_NUM_ALGORITHMS" 43)
+(type ("/usr/local/include/nlopt.h" 155)
+ "nlopt_algorithm"
+ (enum-ref "44_/usr/local/include/nlopt.h"))
+(function ("/usr/local/include/nlopt.h" 157)
+ "nlopt_algorithm_name"
+ (function
+  ((typedef "nlopt_algorithm") )
+  (pointer (char ()))) (extern))
+(enum ("" 0)
+ "48_/usr/local/include/nlopt.h"(("NLOPT_FAILURE" -1)("NLOPT_INVALID_ARGS" -2)("NLOPT_OUT_OF_MEMORY" -3)("NLOPT_ROUNDOFF_LIMITED" -4)("NLOPT_FORCED_STOP" -5)("NLOPT_SUCCESS" 1)("NLOPT_STOPVAL_REACHED" 2)("NLOPT_FTOL_REACHED" 3)("NLOPT_XTOL_REACHED" 4)("NLOPT_MAXEVAL_REACHED" 5)("NLOPT_MAXTIME_REACHED" 6)))
+(enum-ident ("" 0)
+ "NLOPT_FAILURE" -1)
+(enum-ident ("" 0)
+ "NLOPT_INVALID_ARGS" -2)
+(enum-ident ("" 0)
+ "NLOPT_OUT_OF_MEMORY" -3)
+(enum-ident ("" 0)
+ "NLOPT_ROUNDOFF_LIMITED" -4)
+(enum-ident ("" 0)
+ "NLOPT_FORCED_STOP" -5)
+(enum-ident ("" 0)
+ "NLOPT_SUCCESS" 1)
+(enum-ident ("" 0)
+ "NLOPT_STOPVAL_REACHED" 2)
+(enum-ident ("" 0)
+ "NLOPT_FTOL_REACHED" 3)
+(enum-ident ("" 0)
+ "NLOPT_XTOL_REACHED" 4)
+(enum-ident ("" 0)
+ "NLOPT_MAXEVAL_REACHED" 5)
+(enum-ident ("" 0)
+ "NLOPT_MAXTIME_REACHED" 6)
+(type ("/usr/local/include/nlopt.h" 171)
+ "nlopt_result"
+ (enum-ref "48_/usr/local/include/nlopt.h"))
+(macro ("/usr/local/include/nlopt.h" 173) "NLOPT_MINF_MAX_REACHED" "NLOPT_STOPVAL_REACHED")
+(function ("/usr/local/include/nlopt.h" 175)
+ "nlopt_srand"
+ (function
+  ((unsigned-long ()) )
+  (void ())) (extern))
+(function ("/usr/local/include/nlopt.h" 176)
+ "nlopt_srand_time"
+ (function
+  ()
+  (void ())) (extern))
+(function ("/usr/local/include/nlopt.h" 178)
+ "nlopt_version"
+ (function
+  ((pointer (int ())) (pointer (int ())) (pointer (int ())) )
+  (void ())) (extern))
+(type ("/usr/local/include/nlopt.h" 189)
+ "nlopt_opt"
+ (pointer (struct-ref "nlopt_opt_s")))
+(function ("/usr/local/include/nlopt.h" 194)
+ "nlopt_create"
+ (function
+  ((typedef "nlopt_algorithm") (unsigned ()) )
+  (typedef "nlopt_opt")) (extern))
+(function ("/usr/local/include/nlopt.h" 195)
+ "nlopt_destroy"
+ (function
+  ((typedef "nlopt_opt") )
+  (void ())) (extern))
+(function ("/usr/local/include/nlopt.h" 196)
+ "nlopt_copy"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (typedef "nlopt_opt")) (extern))
+(function ("/usr/local/include/nlopt.h" 199)
+ "nlopt_optimize"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 202)
+ "nlopt_set_min_objective"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (pointer (void ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 204)
+ "nlopt_set_max_objective"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (pointer (void ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 206)
+ "nlopt_set_precond_min_objective"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (typedef "nlopt_precond") (pointer (void ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 207)
+ "nlopt_set_precond_max_objective"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (typedef "nlopt_precond") (pointer (void ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 209)
+ "nlopt_get_algorithm"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (typedef "nlopt_algorithm")) (extern))
+(function ("/usr/local/include/nlopt.h" 210)
+ "nlopt_get_dimension"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (unsigned ())) (extern))
+(function ("/usr/local/include/nlopt.h" 215)
+ "nlopt_set_lower_bounds"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 216)
+ "nlopt_set_lower_bounds1"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 218)
+ "nlopt_get_lower_bounds"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 220)
+ "nlopt_set_upper_bounds"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 221)
+ "nlopt_set_upper_bounds1"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 223)
+ "nlopt_get_upper_bounds"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 225)
+ "nlopt_remove_inequality_constraints"
+ (function
+  ((typedef "nlopt_opt") )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 229)
+ "nlopt_add_inequality_constraint"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (pointer (void ())) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 232)
+ "nlopt_add_precond_inequality_constraint"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (typedef "nlopt_precond") (pointer (void ())) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 237)
+ "nlopt_add_inequality_mconstraint"
+ (function
+  ((typedef "nlopt_opt") (unsigned ()) (typedef "nlopt_mfunc") (pointer (void ())) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 239)
+ "nlopt_remove_equality_constraints"
+ (function
+  ((typedef "nlopt_opt") )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 243)
+ "nlopt_add_equality_constraint"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (pointer (void ())) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 246)
+ "nlopt_add_precond_equality_constraint"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_func") (typedef "nlopt_precond") (pointer (void ())) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 251)
+ "nlopt_add_equality_mconstraint"
+ (function
+  ((typedef "nlopt_opt") (unsigned ()) (typedef "nlopt_mfunc") (pointer (void ())) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 255)
+ "nlopt_set_stopval"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 256)
+ "nlopt_get_stopval"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (double ())) (extern))
+(function ("/usr/local/include/nlopt.h" 258)
+ "nlopt_set_ftol_rel"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 259)
+ "nlopt_get_ftol_rel"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (double ())) (extern))
+(function ("/usr/local/include/nlopt.h" 260)
+ "nlopt_set_ftol_abs"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 261)
+ "nlopt_get_ftol_abs"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (double ())) (extern))
+(function ("/usr/local/include/nlopt.h" 263)
+ "nlopt_set_xtol_rel"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 264)
+ "nlopt_get_xtol_rel"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (double ())) (extern))
+(function ("/usr/local/include/nlopt.h" 265)
+ "nlopt_set_xtol_abs1"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 266)
+ "nlopt_set_xtol_abs"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 268)
+ "nlopt_get_xtol_abs"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 270)
+ "nlopt_set_maxeval"
+ (function
+  ((typedef "nlopt_opt") (int ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 271)
+ "nlopt_get_maxeval"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (int ())) (extern))
+(function ("/usr/local/include/nlopt.h" 273)
+ "nlopt_set_maxtime"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 274)
+ "nlopt_get_maxtime"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (double ())) (extern))
+(function ("/usr/local/include/nlopt.h" 276)
+ "nlopt_force_stop"
+ (function
+  ((typedef "nlopt_opt") )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 277)
+ "nlopt_set_force_stop"
+ (function
+  ((typedef "nlopt_opt") (int ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 278)
+ "nlopt_get_force_stop"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (int ())) (extern))
+(function ("/usr/local/include/nlopt.h" 283)
+ "nlopt_set_local_optimizer"
+ (function
+  ((typedef "nlopt_opt") (pointer (struct-ref "nlopt_opt_s")) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 285)
+ "nlopt_set_population"
+ (function
+  ((typedef "nlopt_opt") (unsigned ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 286)
+ "nlopt_get_population"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (unsigned ())) (extern))
+(function ("/usr/local/include/nlopt.h" 288)
+ "nlopt_set_vector_storage"
+ (function
+  ((typedef "nlopt_opt") (unsigned ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 289)
+ "nlopt_get_vector_storage"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) )
+  (unsigned ())) (extern))
+(function ("/usr/local/include/nlopt.h" 292)
+ "nlopt_set_default_initial_step"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 294)
+ "nlopt_set_initial_step"
+ (function
+  ((typedef "nlopt_opt") (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 295)
+ "nlopt_set_initial_step1"
+ (function
+  ((typedef "nlopt_opt") (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 297)
+ "nlopt_get_initial_step"
+ (function
+  ((pointer (struct-ref "nlopt_opt_s")) (pointer (double ())) (pointer (double ())) )
+  (typedef "nlopt_result")) (extern))
+(type ("/usr/local/include/nlopt.h" 303)
+ "nlopt_munge"
+ (pointer (function
+  ((pointer (void ())) )
+  (pointer (void ())))))
+(function ("/usr/local/include/nlopt.h" 306)
+ "nlopt_set_munge"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_munge") (typedef "nlopt_munge") )
+  (void ())) (extern))
+(type ("/usr/local/include/nlopt.h" 307)
+ "nlopt_munge2"
+ (pointer (function
+  ((pointer (void ())) (pointer (void ())) )
+  (pointer (void ())))))
+(function ("/usr/local/include/nlopt.h" 309)
+ "nlopt_munge_data"
+ (function
+  ((typedef "nlopt_opt") (typedef "nlopt_munge2") (pointer (void ())) )
+  (void ())) (extern))
+(macro ("/usr/local/include/nlopt.h" 320) "NLOPT_DEPRECATED" "__attribute__((deprecated))")
+(type ("/usr/local/include/nlopt.h" 327)
+ "nlopt_func_old"
+ (pointer (function
+  ((int ()) (pointer (double ())) (pointer (double ())) (pointer (void ())) )
+  (double ()))))
+(function ("/usr/local/include/nlopt.h" 337)
+ "nlopt_minimize"
+ (function
+  ((typedef "nlopt_algorithm") (int ()) (typedef "nlopt_func_old") (pointer (void ())) (pointer (double ())) (pointer (double ())) (pointer (double ())) (pointer (double ())) (double ()) (double ()) (double ()) (double ()) (pointer (double ())) (int ()) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 348)
+ "nlopt_minimize_constrained"
+ (function
+  ((typedef "nlopt_algorithm") (int ()) (typedef "nlopt_func_old") (pointer (void ())) (int ()) (typedef "nlopt_func_old") (pointer (void ())) (typedef "ptrdiff_t") (pointer (double ())) (pointer (double ())) (pointer (double ())) (pointer (double ())) (double ()) (double ()) (double ()) (double ()) (pointer (double ())) (int ()) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 361)
+ "nlopt_minimize_econstrained"
+ (function
+  ((typedef "nlopt_algorithm") (int ()) (typedef "nlopt_func_old") (pointer (void ())) (int ()) (typedef "nlopt_func_old") (pointer (void ())) (typedef "ptrdiff_t") (int ()) (typedef "nlopt_func_old") (pointer (void ())) (typedef "ptrdiff_t") (pointer (double ())) (pointer (double ())) (pointer (double ())) (pointer (double ())) (double ()) (double ()) (double ()) (double ()) (pointer (double ())) (double ()) (double ()) (int ()) (double ()) )
+  (typedef "nlopt_result")) (extern))
+(function ("/usr/local/include/nlopt.h" 365)
+ "nlopt_get_local_search_algorithm"
+ (function
+  ((pointer (typedef "nlopt_algorithm")) (pointer (typedef "nlopt_algorithm")) (pointer (int ())) )
+  (void ())) (extern))
+(function ("/usr/local/include/nlopt.h" 368)
+ "nlopt_set_local_search_algorithm"
+ (function
+  ((typedef "nlopt_algorithm") (typedef "nlopt_algorithm") (int ()) )
+  (void ())) (extern))
+(function ("/usr/local/include/nlopt.h" 370)
+ "nlopt_get_stochastic_population"
+ (function
+  ()
+  (int ())) (extern))
+(function ("/usr/local/include/nlopt.h" 371)
+ "nlopt_set_stochastic_population"
+ (function
+  ((int ()) )
+  (void ())) (extern))
