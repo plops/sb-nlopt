@@ -111,6 +111,9 @@
 
 (define-functions)
 
+;; the following is a version of the nlopt tutorial in common lisp
+;; i'm sure that lispier wrapper functions can be introduced
+
 (sb-alien::define-alien-callback myfunc double ((n unsigned) (x (* double)) (grad (* double)) (data (* t)))
   (declare (ignorable n data))
   (unless (null-alien grad)
