@@ -1,6 +1,6 @@
 ;; i macro-expanded the two macros define-foreign-stuff and
 ;; define-functions from nlopt-ffi.lisp to obtain the following
-;; foreign definitions:
+;; foreign definitions (for intel x86_64):
 
 (PROGN
  (DEFINE-ALIEN-TYPE |ptrdiff_t| LONG)
@@ -56,148 +56,151 @@
      (FUNCTION DOUBLE INT (* DOUBLE) (* DOUBLE) (* T))))
 
 (PROGN
-  (DEFINE-ALIEN-ROUTINE |nlopt_algorithm_name| (* CHAR) (P1 |nlopt_algorithm|))
-  (DEFINE-ALIEN-ROUTINE |nlopt_srand| VOID (P1 UNSIGNED-LONG))
+  (DEFINE-ALIEN-ROUTINE |nlopt_algorithm_name| (* CHAR) (algorithm |nlopt_algorithm|))
+  (DEFINE-ALIEN-ROUTINE |nlopt_srand| VOID (seed UNSIGNED-LONG))
   (DEFINE-ALIEN-ROUTINE |nlopt_srand_time| VOID)
-  (DEFINE-ALIEN-ROUTINE |nlopt_version| VOID (P1 (* INT)) (P2 (* INT))
-			(P3 (* INT)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_create| |nlopt_opt| (P1 |nlopt_algorithm|)
-			(P2 UNSIGNED))
-  (DEFINE-ALIEN-ROUTINE |nlopt_destroy| VOID (P1 |nlopt_opt|))
+  (DEFINE-ALIEN-ROUTINE |nlopt_version| VOID (major (* INT)) (minor (* INT))
+			(bugfix (* INT)))
+  ;; object oriented api
+  (DEFINE-ALIEN-ROUTINE |nlopt_create| |nlopt_opt| (algorithm |nlopt_algorithm|)
+			(n UNSIGNED))
+  (DEFINE-ALIEN-ROUTINE |nlopt_destroy| VOID (opt |nlopt_opt|))
   (DEFINE-ALIEN-ROUTINE |nlopt_copy| |nlopt_opt|
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_optimize| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 (* DOUBLE)) (P3 (* DOUBLE)))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_optimize| |nlopt_result| (opt |nlopt_opt|)
+			(x (* DOUBLE)) (opt-f (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_min_objective| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 (* T)))
+    (opt |nlopt_opt|) (f |nlopt_func|) (f-data (* T)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_max_objective| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 (* T)))
+    (opt |nlopt_opt|) (f |nlopt_func|) (f-data (* T)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_precond_min_objective| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 |nlopt_precond|)
-    (P4 (* T)))
+    (opt |nlopt_opt|) (f |nlopt_func|) (precond |nlopt_precond|)
+    (f-data (* T)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_precond_max_objective| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 |nlopt_precond|)
-    (P4 (* T)))
+    (opt |nlopt_opt|) (f |nlopt_func|) (precond |nlopt_precond|)
+    (f-data (* T)))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_algorithm| |nlopt_algorithm|
-    (P1 (* (STRUCT |nlopt_opt_s|))))
+    (opt (* (STRUCT |nlopt_opt_s|))))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_dimension| UNSIGNED
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_lower_bounds| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 (* DOUBLE)))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  ;; contraints
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_lower_bounds| |nlopt_result| (opt |nlopt_opt|)
+			(lb (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_lower_bounds1| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 DOUBLE))
+    (opt |nlopt_opt|) (lb DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_lower_bounds| |nlopt_result|
-    (P1 (* (STRUCT |nlopt_opt_s|))) (P2 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_upper_bounds| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 (* DOUBLE)))
+    (opt (* (STRUCT |nlopt_opt_s|))) (lb (* DOUBLE)))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_upper_bounds| |nlopt_result| (opt |nlopt_opt|)
+			(ub (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_upper_bounds1| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 DOUBLE))
+    (opt |nlopt_opt|) (ub DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_upper_bounds| |nlopt_result|
-    (P1 (* (STRUCT |nlopt_opt_s|))) (P2 (* DOUBLE)))
+    (opt (* (STRUCT |nlopt_opt_s|))) (ub (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_remove_inequality_constraints| |nlopt_result|
-    (P1 |nlopt_opt|))
+    (opt |nlopt_opt|))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_inequality_constraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 (* T))
-    (P4 DOUBLE))
+    (opt |nlopt_opt|) (fc |nlopt_func|) (fc-data (* T))
+    (tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_precond_inequality_constraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 |nlopt_precond|)
-    (P4 (* T)) (P5 DOUBLE))
+    (opt |nlopt_opt|) (fc |nlopt_func|) (precond |nlopt_precond|)
+    (fc-data (* T)) (tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_inequality_mconstraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 UNSIGNED) (P3 |nlopt_mfunc|)
-    (P4 (* T)) (P5 (* DOUBLE)))
+    (opt |nlopt_opt|) (m UNSIGNED) (fc |nlopt_mfunc|)
+    (fc-data (* T)) (tol (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_remove_equality_constraints| |nlopt_result|
-    (P1 |nlopt_opt|))
+    (opt |nlopt_opt|))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_equality_constraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 (* T))
-    (P4 DOUBLE))
+    (opt |nlopt_opt|) (h |nlopt_func|) (h-data (* T))
+    (tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_precond_equality_constraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 |nlopt_func|) (P3 |nlopt_precond|)
-    (P4 (* T)) (P5 DOUBLE))
+    (opt |nlopt_opt|) (h |nlopt_func|) (precond |nlopt_precond|)
+    (h-data (* T)) (tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_add_equality_mconstraint| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 UNSIGNED) (P3 |nlopt_mfunc|)
-    (P4 (* T)) (P5 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_stopval| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
+    (opt |nlopt_opt|) (m UNSIGNED) (h |nlopt_mfunc|)
+    (h-data (* T)) (tol (* DOUBLE)))
+  ;; stopping criteria
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_stopval| |nlopt_result| (opt |nlopt_opt|)
+			(stopval DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_stopval| DOUBLE
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_ftol_rel| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_ftol_rel| |nlopt_result| (opt |nlopt_opt|)
+			(tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_ftol_rel| DOUBLE
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_ftol_abs| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_ftol_abs| |nlopt_result| (opt |nlopt_opt|)
+			(tol DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_ftol_abs| DOUBLE
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_rel| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_xtol_rel| DOUBLE
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_abs1| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_abs| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_xtol_abs| |nlopt_result|
-    (P1 (* (STRUCT |nlopt_opt_s|))) (P2 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_maxeval| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 INT))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_maxeval| INT (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_maxtime| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_maxtime| DOUBLE
-    (P1 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_force_stop| |nlopt_result| (P1 |nlopt_opt|))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_force_stop| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 INT))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_rel| |nlopt_result| (opt |nlopt_opt|)
+			(tol DOUBLE))
+  (DEFINE-ALIEN-ROUTINE |nlopt_get_xtol_rel| DOUBLE (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_abs1| |nlopt_result| (opt |nlopt_opt|) (tol DOUBLE))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_xtol_abs| |nlopt_result| (opt |nlopt_opt|) (tol (* DOUBLE)))
+  (DEFINE-ALIEN-ROUTINE |nlopt_get_xtol_abs| |nlopt_result| (opt (* (STRUCT |nlopt_opt_s|)))
+			(tol (* DOUBLE)))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_maxeval| |nlopt_result| (opt |nlopt_opt|)
+			(maxeval INT))
+  (DEFINE-ALIEN-ROUTINE |nlopt_get_maxeval| INT (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_maxtime| |nlopt_result| (opt |nlopt_opt|)
+			(maxtime DOUBLE))
+  (DEFINE-ALIEN-ROUTINE |nlopt_get_maxtime| DOUBLE  (opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_force_stop| |nlopt_result| (opt |nlopt_opt|))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_force_stop| |nlopt_result| (opt |nlopt_opt|)
+			(val INT))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_force_stop| INT
-    (P1 (* (STRUCT |nlopt_opt_s|))))
+    (opt (* (STRUCT |nlopt_opt_s|))))
+  ;; alorithm-specific parameters
   (DEFINE-ALIEN-ROUTINE |nlopt_set_local_optimizer| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 (* (STRUCT |nlopt_opt_s|))))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_population| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 UNSIGNED))
+    (opt |nlopt_opt|) (local-opt (* (STRUCT |nlopt_opt_s|))))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_population| |nlopt_result| (opt |nlopt_opt|)
+			(population UNSIGNED))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_population| UNSIGNED
-    (P1 (* (STRUCT |nlopt_opt_s|))))
+    (opt (* (STRUCT |nlopt_opt_s|))))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_vector_storage| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 UNSIGNED))
+    (opt |nlopt_opt|) (dim UNSIGNED))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_vector_storage| UNSIGNED
-    (P1 (* (STRUCT |nlopt_opt_s|))))
+    (opt (* (STRUCT |nlopt_opt_s|))))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_default_initial_step| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_initial_step| |nlopt_result| (P1 |nlopt_opt|)
-			(P2 (* DOUBLE)))
+    (opt |nlopt_opt|) (x (* DOUBLE)))
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_initial_step| |nlopt_result| (opt |nlopt_opt|)
+			(dx (* DOUBLE)))
   (DEFINE-ALIEN-ROUTINE |nlopt_set_initial_step1| |nlopt_result|
-    (P1 |nlopt_opt|) (P2 DOUBLE))
+    (opt |nlopt_opt|) (dx DOUBLE))
   (DEFINE-ALIEN-ROUTINE |nlopt_get_initial_step| |nlopt_result|
-    (P1 (* (STRUCT |nlopt_opt_s|))) (P2 (* DOUBLE))
-    (P3 (* DOUBLE)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_munge| VOID (P1 |nlopt_opt|)
-			(P2 |nlopt_munge|) (P3 |nlopt_munge|))
-  (DEFINE-ALIEN-ROUTINE |nlopt_munge_data| VOID (P1 |nlopt_opt|)
-			(P2 |nlopt_munge2|) (P3 (* T)))
+    (opt (* (STRUCT |nlopt_opt_s|))) (x (* DOUBLE)) (dx (* DOUBLE)))
+  ;; functions for foreign wrappers, tells nlopt_destroy and
+  ;; nlopt_copy to duplicate or free f_data pointers
+  (DEFINE-ALIEN-ROUTINE |nlopt_set_munge| VOID (opt |nlopt_opt|)
+			(munge-on-destroy |nlopt_munge|) (munge-on-copy |nlopt_munge|))
+  (DEFINE-ALIEN-ROUTINE |nlopt_munge_data| VOID (opt |nlopt_opt|)
+			(nlopt-munge2 |nlopt_munge2|) (data (* T)))
   (DEFINE-ALIEN-ROUTINE |nlopt_minimize| |nlopt_result| (P1 |nlopt_algorithm|)
 			(P2 INT) (P3 |nlopt_func_old|) (P4 (* T))
 			(P5 (* DOUBLE)) (P6 (* DOUBLE)) (P7 (* DOUBLE))
 			(P8 (* DOUBLE)) (P9 DOUBLE) (P10 DOUBLE) (P11 DOUBLE)
 			(P12 DOUBLE) (P13 (* DOUBLE)) (P14 INT) (P15 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_minimize_constrained| |nlopt_result|
-    (P1 |nlopt_algorithm|) (P2 INT) (P3 |nlopt_func_old|)
-    (P4 (* T)) (P5 INT) (P6 |nlopt_func_old|) (P7 (* T))
-    (P8 |ptrdiff_t|) (P9 (* DOUBLE)) (P10 (* DOUBLE))
-    (P11 (* DOUBLE)) (P12 (* DOUBLE)) (P13 DOUBLE)
-    (P14 DOUBLE) (P15 DOUBLE) (P16 DOUBLE) (P17 (* DOUBLE))
-    (P18 INT) (P19 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_minimize_econstrained| |nlopt_result|
-    (P1 |nlopt_algorithm|) (P2 INT) (P3 |nlopt_func_old|)
-    (P4 (* T)) (P5 INT) (P6 |nlopt_func_old|) (P7 (* T))
-    (P8 |ptrdiff_t|) (P9 INT) (P10 |nlopt_func_old|)
-    (P11 (* T)) (P12 |ptrdiff_t|) (P13 (* DOUBLE))
-    (P14 (* DOUBLE)) (P15 (* DOUBLE)) (P16 (* DOUBLE))
-    (P17 DOUBLE) (P18 DOUBLE) (P19 DOUBLE) (P20 DOUBLE)
-    (P21 (* DOUBLE)) (P22 DOUBLE) (P23 DOUBLE) (P24 INT)
-    (P25 DOUBLE))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_local_search_algorithm| VOID
-    (P1 (* |nlopt_algorithm|)) (P2 (* |nlopt_algorithm|))
-    (P3 (* INT)))
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_local_search_algorithm| VOID
-    (P1 |nlopt_algorithm|) (P2 |nlopt_algorithm|) (P3 INT))
-  (DEFINE-ALIEN-ROUTINE |nlopt_get_stochastic_population| INT)
-  (DEFINE-ALIEN-ROUTINE |nlopt_set_stochastic_population| VOID (P1 INT)))
+  ;; deprecated api, therefore i don't even define the functions
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_minimize_constrained| |nlopt_result|
+  ;;   (P1 |nlopt_algorithm|) (P2 INT) (P3 |nlopt_func_old|)
+  ;;   (P4 (* T)) (P5 INT) (P6 |nlopt_func_old|) (P7 (* T))
+  ;;   (P8 |ptrdiff_t|) (P9 (* DOUBLE)) (P10 (* DOUBLE))
+  ;;   (P11 (* DOUBLE)) (P12 (* DOUBLE)) (P13 DOUBLE)
+  ;;   (P14 DOUBLE) (P15 DOUBLE) (P16 DOUBLE) (P17 (* DOUBLE))
+  ;;   (P18 INT) (P19 DOUBLE))
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_minimize_econstrained| |nlopt_result|
+  ;;   (P1 |nlopt_algorithm|) (P2 INT) (P3 |nlopt_func_old|)
+  ;;   (P4 (* T)) (P5 INT) (P6 |nlopt_func_old|) (P7 (* T))
+  ;;   (P8 |ptrdiff_t|) (P9 INT) (P10 |nlopt_func_old|)
+  ;;   (P11 (* T)) (P12 |ptrdiff_t|) (P13 (* DOUBLE))
+  ;;   (P14 (* DOUBLE)) (P15 (* DOUBLE)) (P16 (* DOUBLE))
+  ;;   (P17 DOUBLE) (P18 DOUBLE) (P19 DOUBLE) (P20 DOUBLE)
+  ;;   (P21 (* DOUBLE)) (P22 DOUBLE) (P23 DOUBLE) (P24 INT)
+  ;;   (P25 DOUBLE))
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_get_local_search_algorithm| VOID
+  ;;   (P1 (* |nlopt_algorithm|)) (P2 (* |nlopt_algorithm|))
+  ;;   (P3 (* INT)))
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_set_local_search_algorithm| VOID
+  ;;   (P1 |nlopt_algorithm|) (P2 |nlopt_algorithm|) (P3 INT))
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_get_stochastic_population| INT)
+  ;; (DEFINE-ALIEN-ROUTINE |nlopt_set_stochastic_population| VOID (P1 INT))
+  )
