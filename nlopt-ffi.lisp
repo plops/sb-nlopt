@@ -129,8 +129,7 @@
 	 (x1 (deref x 1))
 	 (q (+ (* a x0) b)))
     (unless (null-alien grad)
-      (setf (deref grad 0) (* 3d0 a
-			      (expt q 2))
+      (setf (deref grad 0) (* 3d0 a (expt q 2))
 	    (deref grad 1) -1d0))
     (- (expt q 3) x1)))
 
@@ -141,7 +140,6 @@
  (sb-sys:with-pinned-objects (a)
    (|nlopt_set_lower_bounds| *opt* (sb-sys:vector-sap a))))
 
-#+nil
 (|nlopt_set_min_objective| *opt* myfunc
 			   (sb-sys:int-sap 0))
 
