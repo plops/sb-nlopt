@@ -24,14 +24,16 @@
 	     (unsigned-long-long '(unsigned 64))
 	     (long-double ;; i'm not sure what to do about functions with long double arguments
 	      (error 'ffi-doesnt-support-long-float))
-	     (pointer `(* ,(let* ((next (car (cdr ffi-type)))
-				  (pnext (convert-ffi-type-to-alien next)))
-				 (if (or (eq pnext 'void)
-					 (eq pnext '|_IO_lock_t|))
-				     ;; sb-alien definitions of void pointers are different from those of
-				     ;; ffigen4: we have to convert (pointer (void)) to (* T)
-				     t
-				     pnext))))
+	     (pointer (let* ((next (car (cdr ffi-type)))
+			      (pnext (convert-ffi-type-to-alien next)))
+			 (if (or (eq pnext 'void)
+				 (eq pnext '|_IO_lock_t|))
+			     ;; sb-alien definitions of void pointers are different from those of
+			     ;; ffigen4: we have to convert (pointer (void)) to (* T)
+			     '(*  t)
+			     (if (eq (first next) 'function)
+				 pnext
+				 `(* ,pnext)))))
 	     (enum-ref ; `(enum ,(intern (second ffi-type)))
 	       (intern (second ffi-type))
 	      )
@@ -110,7 +112,62 @@
 (define-functions)
 
 (sb-alien::define-alien-callback myfunc double ((n unsigned) (x (* double)) (grad (* double)) (data (* t)))
+  (declare (ignorable n data))
   (unless (null-alien grad)
     (setf (deref grad 0) 0d0
 	  (deref grad 1) (/ .5d0 (sqrt (deref x 1)))))
   (sqrt (deref x 1)))
+
+(sb-alien::define-alien-callback myconstraint
+    double ((n unsigned) (x (* double))
+	    (grad (* double)) (data (* t)))
+  (declare (ignorable n))
+  (let* ((d (sap-alien (alien-sap data) (* double)))
+	 (a (deref d 0))
+	 (b (deref d 1))
+	 (x0 (deref x 0))
+	 (x1 (deref x 1))
+	 (q (+ (* a x0) b)))
+    (unless (null-alien grad)
+      (setf (deref grad 0) (* 3d0 a
+			      (expt q 2))
+	    (deref grad 1) -1d0))
+    (- (expt q 3) x1)))
+
+(defparameter *opt* (|nlopt_create| 'NLOPT_LD_MMA 2))
+
+(let ((a (make-array 2 :element-type 'double-float
+		     :initial-contents '(-1d200 0d0))))
+ (sb-sys:with-pinned-objects (a)
+   (|nlopt_set_lower_bounds| *opt* (sb-sys:vector-sap a))))
+
+#+nil
+(|nlopt_set_min_objective| *opt* myfunc
+			   (sb-sys:int-sap 0))
+
+
+(let ((a (make-array 2 :element-type 'double-float
+		     :initial-contents '(2d0 0d0))))
+ (sb-sys:with-pinned-objects (a)
+   (|nlopt_add_inequality_constraint|
+    *opt* myconstraint (sb-sys:vector-sap a) 1d-8)))
+
+(let ((a (make-array 2 :element-type 'double-float
+		     :initial-contents '(-1d0 1d0))))
+ (sb-sys:with-pinned-objects (a)
+   (|nlopt_add_inequality_constraint|
+    *opt* myconstraint (sb-sys:vector-sap a) 1d-8)))
+
+(|nlopt_set_xtol_rel| *opt* 1d-4)
+
+
+(let ((x (make-array 2 :element-type 'double-float
+		     :initial-contents '(-1.234d0 5.678d0)))
+      (minf (make-array 1 :element-type 'double-float
+			:initial-contents '(1d3)
+			)))
+ (sb-sys:with-pinned-objects (x minf)
+   (|nlopt_optimize| *opt*
+		     (sb-sys:vector-sap x)
+		     (sb-sys:vector-sap minf))
+   (aref minf 0)))
