@@ -108,3 +108,9 @@
 (load-shared-object "libnlopt.so")
 
 (define-functions)
+
+(sb-alien::define-alien-callback myfunc double ((n unsigned) (x (* double)) (grad (* double)) (data (* t)))
+  (unless (null-alien grad)
+    (setf (deref grad 0) 0d0
+	  (deref grad 1) (/ .5d0 (sqrt (deref x 1)))))
+  (sqrt (deref x 1)))
